@@ -7,16 +7,16 @@ import TableUser from "./component/TableUser";
 const DashboardPage = () => {
   const [selectedUser, setSelectedUser] = useState(null);
 
-  const handleUserSelect = (user) => {
+  const handleUserSelect = (user:any) => {
     setSelectedUser(user);
   };
 
   return (
-    <div className="flex flex-col md:flex-row">
-      <div className="w-full md:w-1/2 p-4">
+    <div className="flex flex-col lg:flex-row">
+      <div className="w-full p-4">
         <SectionUser user={selectedUser}></SectionUser>
       </div>
-      <div className="w-full md:w-1/2 p-4">
+      <div className="w-full p-4">
         <TableUser onUserSelect={handleUserSelect}></TableUser>
       </div>
     </div>

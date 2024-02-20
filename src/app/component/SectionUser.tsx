@@ -1,7 +1,7 @@
 import Image from "next/image";
 import React from "react";
 
-export default function SectionUser({ user }) {
+export default function SectionUser({ user }:any) {
   console.log(user);
   return (
     <div>
@@ -9,11 +9,11 @@ export default function SectionUser({ user }) {
         {user ? (
           <div>
             <Image
-              width={40}
-              height={40}
+              width={120}
+              height={120}
               src={user.image}
               alt="Avatar"
-              className="rounded-full w-20 h-20 mx-auto mb-4"
+              className="rounded-full mx-auto mb-4"
             ></Image>
             <p className="text-center">
               {user.firstName} {user.lastName}

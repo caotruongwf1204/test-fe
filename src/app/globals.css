@@ -26,3 +26,17 @@
   background-color: rgb(159, 159, 159);
   color: #ffffff;
 }
+
+
+
+
+@media (max-width: 425px) {
+  .paginate-item {
+    width: auto !important;
+    height: auto !important;
+  }
+
+  .navigation {
+    display: none;
+  }
+}
