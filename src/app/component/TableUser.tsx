@@ -2,15 +2,15 @@
 
 import { keepPreviousData, useQuery } from "@tanstack/react-query";
 import axios from "axios";
-import { useSearchParams } from "next/navigation";
+import {  useSearchParams } from "next/navigation";
 import { BsChevronDoubleLeft, BsChevronDoubleRight } from "react-icons/bs";
 import ReactPaginate from "react-paginate";
 
-export default function TableUser() {
+export default function TableUser({ onUserSelect }) {
   const searchParams = useSearchParams();
 
   const page = searchParams.get("page") || 1;
-  const limit = searchParams.get("limit") || 5;
+  const limit = searchParams.get("limit") || 10;
   const { data, isLoading, isError, error } = useQuery({
     queryKey: ["users", { page, limit }],
     queryFn: () =>
@@ -21,8 +21,8 @@ export default function TableUser() {
   });
 
   const handlePageClick = (page) => {
- 
-  }
+  
+  };
 
 
   const totalPage = Math.ceil((data?.data.total || 0) / limit);
@@ -49,7 +49,7 @@ export default function TableUser() {
             <div>Fail to load user data: {error.message}</div>
           ) : (
             dataUsers.map((user) => (
-              <tr className="border-t border-gray-300" key={user.id}>
+              <tr className="tr-user cursor-pointer border-t border-gray-300" key={user.id} onClick={() => onUserSelect(user)}>
                 <td className="text-center p-3">{user.firstName}</td>
                 <td className="text-center p-3">{user.email}</td>
                 <td className="text-center p-3">{user.company.name}</td>
