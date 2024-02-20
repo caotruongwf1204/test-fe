@@ -1,3 +1,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+
+.paginate-item.selected {
+  background-color: rgb(202, 190, 190);
+  color: #ffffff;
+}
